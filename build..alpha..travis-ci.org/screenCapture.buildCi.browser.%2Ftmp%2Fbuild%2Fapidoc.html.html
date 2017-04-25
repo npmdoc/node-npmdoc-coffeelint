@@ -1,0 +1,2351 @@
+<html><head></head><body><div class="apidocDiv">
+<style>
+/*csslint
+*/
+.apidocDiv {
+    background: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.apidocDiv a[href] {
+    color: #33f;
+    font-weight: bold;
+    text-decoration: none;
+}
+.apidocDiv a[href]:hover {
+    text-decoration: underline;
+}
+.apidocCodeCommentSpan {
+    background: #bbf;
+    color: #000;
+    display: block;
+}
+.apidocCodeKeywordSpan {
+    color: #d00;
+    font-weight: bold;
+}
+.apidocCodePre {
+    background: #eef;
+    border: 1px solid;
+    color: #777;
+    padding: 5px;
+    white-space: pre-wrap;
+}
+.apidocFooterDiv {
+    margin-top: 20px;
+    text-align: center;
+}
+.apidocModuleLi {
+    margin-top: 10px;
+}
+.apidocSectionDiv {
+    border-top: 1px solid;
+    margin-top: 20px;
+}
+.apidocSignatureSpan {
+    color: #777;
+    font-weight: bold;
+}
+</style>
+<h1>api documentation for
+    <a href="http://www.coffeelint.org">coffeelint (v1.16.0)</a>
+</h1>
+<h4>Lint your CoffeeScript</h4>
+<div class="apidocSectionDiv"><a href="#apidoc.tableOfContents" id="apidoc.tableOfContents"><h1>table of contents</h1></a><ol>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.coffeelint">module coffeelint</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.coffeelint.cache">
+            function <span class="apidocSignatureSpan">coffeelint.</span>cache
+            <span class="apidocSignatureSpan">(basepath)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.coffeelint.checkstyle">
+            function <span class="apidocSignatureSpan">coffeelint.</span>checkstyle
+            <span class="apidocSignatureSpan">(errorReport, options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.coffeelint.csv">
+            function <span class="apidocSignatureSpan">coffeelint.</span>csv
+            <span class="apidocSignatureSpan">(errorReport, options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.coffeelint.default">
+            function <span class="apidocSignatureSpan">coffeelint.</span>default
+            <span class="apidocSignatureSpan">(errorReport, options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.coffeelint.getErrorReport">
+            function <span class="apidocSignatureSpan">coffeelint.</span>getErrorReport
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.coffeelint.getRules">
+            function <span class="apidocSignatureSpan">coffeelint.</span>getRules
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.coffeelint.invertLiterate">
+            function <span class="apidocSignatureSpan">coffeelint.</span>invertLiterate
+            <span class="apidocSignatureSpan">(source)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.coffeelint.jslint">
+            function <span class="apidocSignatureSpan">coffeelint.</span>jslint
+            <span class="apidocSignatureSpan">(errorReport, options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.coffeelint.lint">
+            function <span class="apidocSignatureSpan">coffeelint.</span>lint
+            <span class="apidocSignatureSpan">(source, userConfig, literate)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.coffeelint.raw">
+            function <span class="apidocSignatureSpan">coffeelint.</span>raw
+            <span class="apidocSignatureSpan">(errorReport, options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.coffeelint.registerRule">
+            function <span class="apidocSignatureSpan">coffeelint.</span>registerRule
+            <span class="apidocSignatureSpan">(RuleConstructor, ruleName)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.coffeelint.setCache">
+            function <span class="apidocSignatureSpan">coffeelint.</span>setCache
+            <span class="apidocSignatureSpan">(obj)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.coffeelint.trimConfig">
+            function <span class="apidocSignatureSpan">coffeelint.</span>trimConfig
+            <span class="apidocSignatureSpan">(userConfig)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">coffeelint.</span>RULES</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">coffeelint.</span>cache.prototype</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">coffeelint.</span>checkstyle.prototype</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">coffeelint.</span>configfinder</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">coffeelint.</span>csv.prototype</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">coffeelint.</span>default.prototype</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">coffeelint.</span>jslint.prototype</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">coffeelint.</span>raw.prototype</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">coffeelint.</span>ruleLoader</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">string <span class="apidocSignatureSpan">coffeelint.</span>VERSION</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.coffeelint.cache">module coffeelint.cache</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.coffeelint.cache.cache">
+            function <span class="apidocSignatureSpan">coffeelint.</span>cache
+            <span class="apidocSignatureSpan">(basepath)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.coffeelint.cache.prototype">module coffeelint.cache.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.coffeelint.cache.prototype.get">
+            function <span class="apidocSignatureSpan">coffeelint.cache.prototype.</span>get
+            <span class="apidocSignatureSpan">(source)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.coffeelint.cache.prototype.has">
+            function <span class="apidocSignatureSpan">coffeelint.cache.prototype.</span>has
+            <span class="apidocSignatureSpan">(source)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.coffeelint.cache.prototype.hash">
+            function <span class="apidocSignatureSpan">coffeelint.cache.prototype.</span>hash
+            <span class="apidocSignatureSpan">(data)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.coffeelint.cache.prototype.path">
+            function <span class="apidocSignatureSpan">coffeelint.cache.prototype.</span>path
+            <span class="apidocSignatureSpan">(source)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.coffeelint.cache.prototype.set">
+            function <span class="apidocSignatureSpan">coffeelint.cache.prototype.</span>set
+            <span class="apidocSignatureSpan">(source, result)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.coffeelint.cache.prototype.setConfig">
+            function <span class="apidocSignatureSpan">coffeelint.cache.prototype.</span>setConfig
+            <span class="apidocSignatureSpan">(config)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.coffeelint.checkstyle">module coffeelint.checkstyle</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.coffeelint.checkstyle.checkstyle">
+            function <span class="apidocSignatureSpan">coffeelint.</span>checkstyle
+            <span class="apidocSignatureSpan">(errorReport, options)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.coffeelint.checkstyle.prototype">module coffeelint.checkstyle.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.coffeelint.checkstyle.prototype.escape">
+            function <span class="apidocSignatureSpan">coffeelint.checkstyle.prototype.</span>escape
+            <span class="apidocSignatureSpan">(msg)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.coffeelint.checkstyle.prototype.print">
+            function <span class="apidocSignatureSpan">coffeelint.checkstyle.prototype.</span>print
+            <span class="apidocSignatureSpan">(message)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.coffeelint.checkstyle.prototype.publish">
+            function <span class="apidocSignatureSpan">coffeelint.checkstyle.prototype.</span>publish
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.coffeelint.configfinder">module coffeelint.configfinder</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.coffeelint.configfinder.getConfig">
+            function <span class="apidocSignatureSpan">coffeelint.configfinder.</span>getConfig
+            <span class="apidocSignatureSpan">(filename)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.coffeelint.csv">module coffeelint.csv</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.coffeelint.csv.csv">
+            function <span class="apidocSignatureSpan">coffeelint.</span>csv
+            <span class="apidocSignatureSpan">(errorReport, options)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.coffeelint.csv.prototype">module coffeelint.csv.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.coffeelint.csv.prototype.print">
+            function <span class="apidocSignatureSpan">coffeelint.csv.prototype.</span>print
+            <span class="apidocSignatureSpan">(message)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.coffeelint.csv.prototype.publish">
+            function <span class="apidocSignatureSpan">coffeelint.csv.prototype.</span>publish
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.coffeelint.default">module coffeelint.default</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.coffeelint.default.default">
+            function <span class="apidocSignatureSpan">coffeelint.</span>default
+            <span class="apidocSignatureSpan">(errorReport, options)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.coffeelint.default.prototype">module coffeelint.default.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.coffeelint.default.prototype.plural">
+            function <span class="apidocSignatureSpan">coffeelint.default.prototype.</span>plural
+            <span class="apidocSignatureSpan">(str, count)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.coffeelint.default.prototype.print">
+            function <span class="apidocSignatureSpan">coffeelint.default.prototype.</span>print
+            <span class="apidocSignatureSpan">(message)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.coffeelint.default.prototype.publish">
+            function <span class="apidocSignatureSpan">coffeelint.default.prototype.</span>publish
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.coffeelint.default.prototype.reportPath">
+            function <span class="apidocSignatureSpan">coffeelint.default.prototype.</span>reportPath
+            <span class="apidocSignatureSpan">(path, errors)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.coffeelint.default.prototype.reportSummary">
+            function <span class="apidocSignatureSpan">coffeelint.default.prototype.</span>reportSummary
+            <span class="apidocSignatureSpan">(s)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.coffeelint.default.prototype.stylize">
+            function <span class="apidocSignatureSpan">coffeelint.default.prototype.</span>stylize
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.coffeelint.jslint">module coffeelint.jslint</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.coffeelint.jslint.jslint">
+            function <span class="apidocSignatureSpan">coffeelint.</span>jslint
+            <span class="apidocSignatureSpan">(errorReport, options)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.coffeelint.jslint.prototype">module coffeelint.jslint.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.coffeelint.jslint.prototype.escape">
+            function <span class="apidocSignatureSpan">coffeelint.jslint.prototype.</span>escape
+            <span class="apidocSignatureSpan">(msg)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.coffeelint.jslint.prototype.print">
+            function <span class="apidocSignatureSpan">coffeelint.jslint.prototype.</span>print
+            <span class="apidocSignatureSpan">(message)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.coffeelint.jslint.prototype.publish">
+            function <span class="apidocSignatureSpan">coffeelint.jslint.prototype.</span>publish
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.coffeelint.raw">module coffeelint.raw</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.coffeelint.raw.raw">
+            function <span class="apidocSignatureSpan">coffeelint.</span>raw
+            <span class="apidocSignatureSpan">(errorReport, options)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.coffeelint.raw.prototype">module coffeelint.raw.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.coffeelint.raw.prototype.print">
+            function <span class="apidocSignatureSpan">coffeelint.raw.prototype.</span>print
+            <span class="apidocSignatureSpan">(message)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.coffeelint.raw.prototype.publish">
+            function <span class="apidocSignatureSpan">coffeelint.raw.prototype.</span>publish
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.coffeelint.ruleLoader">module coffeelint.ruleLoader</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.coffeelint.ruleLoader.loadFromConfig">
+            function <span class="apidocSignatureSpan">coffeelint.ruleLoader.</span>loadFromConfig
+            <span class="apidocSignatureSpan">(coffeelint, config)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.coffeelint.ruleLoader.loadRule">
+            function <span class="apidocSignatureSpan">coffeelint.ruleLoader.</span>loadRule
+            <span class="apidocSignatureSpan">(coffeelint, moduleName, ruleName)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.coffeelint.ruleLoader.require">
+            function <span class="apidocSignatureSpan">coffeelint.ruleLoader.</span>require
+            <span class="apidocSignatureSpan">(moduleName)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+</ol></div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.coffeelint" id="apidoc.module.coffeelint">module coffeelint</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.coffeelint.cache" id="apidoc.element.coffeelint.cache">
+        function <span class="apidocSignatureSpan">coffeelint.</span>cache
+        <span class="apidocSignatureSpan">(basepath)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Cache(basepath) {
+  this.basepath = basepath;
+  if (!fs.existsSync(this.basepath)) {
+    fs.mkdirSync(this.basepath, 0x1ed);
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.coffeelint.checkstyle" id="apidoc.element.coffeelint.checkstyle">
+        function <span class="apidocSignatureSpan">coffeelint.</span>checkstyle
+        <span class="apidocSignatureSpan">(errorReport, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function CheckstyleReporter(errorReport, options) {
+  this.errorReport = errorReport;
+  if (options == null) {
+    options = {};
+  }
+  this.quiet = options.quiet;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.coffeelint.csv" id="apidoc.element.coffeelint.csv">
+        function <span class="apidocSignatureSpan">coffeelint.</span>csv
+        <span class="apidocSignatureSpan">(errorReport, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function CSVReporter(errorReport, options) {
+  this.errorReport = errorReport;
+  if (options == null) {
+    options = {};
+  }
+  this.quiet = options.quiet;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.coffeelint.default" id="apidoc.element.coffeelint.default">
+        function <span class="apidocSignatureSpan">coffeelint.</span>default
+        <span class="apidocSignatureSpan">(errorReport, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Reporter(errorReport, options) {
+  this.errorReport = errorReport;
+  if (options == null) {
+    options = {};
+  }
+  this.colorize = options.colorize, this.quiet = options.quiet;
+  this.ok = 'âœ“';
+  this.warn = 'âš¡';
+  this.err = 'âœ—';
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.coffeelint.getErrorReport" id="apidoc.element.coffeelint.getErrorReport">
+        function <span class="apidocSignatureSpan">coffeelint.</span>getErrorReport
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">getErrorReport = function () {
+  return new ErrorReport(coffeelint);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  return files.map(function(p) {
+    return path.join(p);
+  });
+};
+
+lintFiles = function(files, config) {
+  var errorReport, file, fileConfig, i, len, literate, source;
+  errorReport = new coffeelint.<span class="apidocCodeKeywordSpan">getErrorReport</span>();
+  for (i = 0, len = files.length; i &lt; len; i++) {
+    file = files[i];
+    source = read(file);
+    literate = CoffeeScript.helpers.isLiterate(file);
+    fileConfig = config ? config : getFallbackConfig(file);
+    errorReport.lint(file, source, fileConfig, literate);
+  }
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.coffeelint.getRules" id="apidoc.element.coffeelint.getRules">
+        function <span class="apidocSignatureSpan">coffeelint.</span>getRules
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">getRules = function () {
+  var j, key, len, output, ref;
+  output = {};
+  ref = Object.keys(RULES).sort();
+  for (j = 0, len = ref.length; j &lt; len; j++) {
+    key = ref[j];
+    output[key] = RULES[key];
+  }
+  return output;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+} else if (options.argv.h) {
+  options.showHelp();
+  process.exit(0);
+} else if (options.argv.trimconfig) {
+  userConfig = (ref = loadConfig(options)) != null ? ref : getFallbackConfig();
+  logConfig(coffeelint.trimConfig(userConfig));
+} else if (options.argv.makeconfig) {
+  logConfig(coffeelint.<span class="apidocCodeKeywordSpan">getRules</span>());
+} else if (options.argv._.length &lt; 1 &amp;&amp; !options.argv.s) {
+  options.showHelp();
+  process.exit(1);
+} else {
+  if (options.argv.cache) {
+    coffeelint.setCache(new Cache(path.join(os.tmpdir(), 'coffeelint')));
+  }
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.coffeelint.invertLiterate" id="apidoc.element.coffeelint.invertLiterate">
+        function <span class="apidocSignatureSpan">coffeelint.</span>invertLiterate
+        <span class="apidocSignatureSpan">(source)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">invertLiterate = function (source) {
+  var j, len, line, newSource, ref;
+  source = CoffeeScript.helpers.invertLiterate(source);
+  newSource = '';
+  ref = source.split('\n');
+  for (j = 0, len = ref.length; j &lt; len; j++) {
+    line = ref[j];
+    if (line.match(/^#/)) {
+      line = line.replace(/\s*$/, '');
+    }
+    line = line.replace(/^[ ]{4}|^\t/g, '');
+    newSource += line + "\n";
+  }
+  return newSource;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.coffeelint.jslint" id="apidoc.element.coffeelint.jslint">
+        function <span class="apidocSignatureSpan">coffeelint.</span>jslint
+        <span class="apidocSignatureSpan">(errorReport, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function JSLintReporter(errorReport, options) {
+  this.errorReport = errorReport;
+  if (options == null) {
+    options = {};
+  }
+  this.quiet = options.quiet;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.coffeelint.lint" id="apidoc.element.coffeelint.lint">
+        function <span class="apidocSignatureSpan">coffeelint.</span>lint
+        <span class="apidocSignatureSpan">(source, userConfig, literate)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">lint = function (source, userConfig, literate) {
+  var allErrors, astErrors, cmd, config, disabled, disabledEntirely, disabledInitially, disabledLine, e, errors, i, inlineConfig
+, j, l, len, len1, lexErrors, lexicalLinter, lineErrors, lineLinter, m, n, name, nextLine, o, ref, ref1, ref2, ref3, ref4, ref5,
+ref6, ref7, ref8, regex, rule, ruleLoader, rules, set, sourceLength, tokensByLine, transform;
+  if (userConfig == null) {
+    userConfig = {};
+  }
+  if (literate == null) {
+    literate = false;
+  }
+  errors = [];
+  if (cache != null) {
+    cache.setConfig(userConfig);
+  }
+  if (cache != null ? cache.has(source) : void 0) {
+    return cache != null ? cache.get(source) : void 0;
+  }
+  config = mergeDefaultConfig(userConfig);
+  if (literate) {
+    source = this.invertLiterate(source);
+  }
+  if ((userConfig != null ? (ref = userConfig.coffeelint) != null ? ref.transforms : void 0 : void 0) != null) {
+    sourceLength = source.split('\n').length;
+    ref2 = userConfig != null ? (ref1 = userConfig.coffeelint) != null ? ref1.transforms : void 0 : void 0;
+    for (j = 0, len = ref2.length; j &lt; len; j++) {
+      m = ref2[j];
+      try {
+        ruleLoader = nodeRequire('./ruleLoader');
+        transform = ruleLoader.require(m);
+        source = transform(source);
+      } catch (error) {}
+    }
+    if (sourceLength !== source.split('\n').length &amp;&amp; config.transform_messes_up_line_numbers.level !== 'ignore') {
+      errors.push(extend({
+        lineNumber: 1,
+        context: "File was transformed from " + sourceLength + " lines to " + (source.split("\n").length) + " lines"
+      }, config.transform_messes_up_line_numbers));
+    }
+  }
+  if ((userConfig != null ? (ref3 = userConfig.coffeelint) != null ? ref3.coffeescript : void 0 : void 0) != null) {
+    CoffeeScript = ruleLoader.require(userConfig.coffeelint.coffeescript);
+  }
+  for (name in userConfig) {
+    if (name !== 'coffeescript_error' &amp;&amp; name !== '_comment') {
+      if (_rules[name] == null) {
+        void 0;
+      }
+    }
+  }
+  disabledInitially = [];
+  ref4 = source.split('\n');
+  for (n = 0, len1 = ref4.length; n &lt; len1; n++) {
+    l = ref4[n];
+    ref5 = LineLinter.getDirective(l) || [], regex = ref5[0], set = ref5[1], rule = ref5[ref5.length - 1];
+    if ((set === 'enable' || set === 'enable-line') &amp;&amp; ((ref6 = config[rule]) != null ? ref6.level : void 0) === 'ignore') {
+      disabledInitially.push(rule);
+      config[rule].level = 'error';
+    }
+  }
+  astErrors = new ASTLinter(source, config, _rules, CoffeeScript).lint();
+  errors = errors.concat(astErrors);
+  if (!hasSyntaxError(source)) {
+    lexicalLinter = new LexicalLinter(source, config, _rules, CoffeeScript);
+    lexErrors = lexicalLinter.lint();
+    errors = errors.concat(lexErrors);
+    tokensByLine = lexicalLinter.tokensByLine;
+    lineLinter = new LineLinter(source, config, _rules, tokensByLine, literate);
+    lineErrors = lineLinter.lint();
+    errors = errors.concat(lineErrors);
+    inlineConfig = lineLinter.inlineConfig;
+  } else {
+    inlineConfig = {
+      enable: {},
+      disable: {},
+      'enable-line': {},
+      'disable-line': {}
+    };
+  }
+  errors.sort(function(a, b) {
+    return a.lineNumber - b.lineNumber;
+  });
+  disabledEntirely = (function() {
+    var len2, map, o, ref7, result;
+    result = [];
+    map = {};
+    ref7 = errors || [];
+    for (o = 0, len2 = ref7.length; o &lt; len2; o++) {
+      name = ref7[o].name;
+      if (!map[name]) {
+        result.push(name);
+        map[name] = true;
+      }
+    }
+    return result;
+  })();
+  allErrors = errors;
+  errors = [];
+  disabled = disabledInitially;
+  nextLine = 0;
+  for (i = o = 0, ref7 = source.split('\n').length; 0 &lt;= ref7 ? o &lt; ref7 : o &gt; ref7; i = 0 &lt;= ref7 ? ++o : --o) {
+    disabledLine = disabled;
+    for (cmd in inlineConfig) {
+      rules = inlineConfig[cmd][i];
+      if (rules != null) {
+        ({
+          'disable': function() {
+            if (rules.length) {
+              disabled = union(disabled, rules);
+              return disabledLine = union(disabledLine, rules);
+            } else {
+              return disabled = disabledLin ...</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  var errorReport, file, fileConfig, i, len, literate, source;
+  errorReport = new coffeelint.getErrorReport();
+  for (i = 0, len = files.length; i &lt; len; i++) {
+    file = files[i];
+    source = read(file);
+    literate = CoffeeScript.helpers.isLiterate(file);
+    fileConfig = config ? config : getFallbackConfig(file);
+    errorReport.<span class="apidocCodeKeywordSpan">lint</span>(file, source, fileConfig, literate);
+  }
+  return errorReport;
+};
+
+lintSource = function(source, config, literate) {
+  var errorReport;
+  if (literate == null) {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.coffeelint.raw" id="apidoc.element.coffeelint.raw">
+        function <span class="apidocSignatureSpan">coffeelint.</span>raw
+        <span class="apidocSignatureSpan">(errorReport, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function RawReporter(errorReport, options) {
+  this.errorReport = errorReport;
+  if (options == null) {
+    options = {};
+  }
+  this.quiet = options.quiet;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.coffeelint.registerRule" id="apidoc.element.coffeelint.registerRule">
+        function <span class="apidocSignatureSpan">coffeelint.</span>registerRule
+        <span class="apidocSignatureSpan">(RuleConstructor, ruleName)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">registerRule = function (RuleConstructor, ruleName) {
+  var e, name, p, ref, ref1;
+  if (ruleName == null) {
+    ruleName = void 0;
+  }
+  p = new RuleConstructor;
+  name = (p != null ? (ref = p.rule) != null ? ref.name : void 0 : void 0) || '(unknown)';
+  e = function(msg) {
+    throw new Error("Invalid rule: " + name + " " + msg);
+  };
+  if (p.rule == null) {
+    e('Rules must provide rule attribute with a default configuration.');
+  }
+  if (p.rule.name == null) {
+    e('Rule defaults require a name');
+  }
+  if ((ruleName != null) &amp;&amp; ruleName !== p.rule.name) {
+    e("Mismatched rule name: " + ruleName);
+  }
+  if (p.rule.message == null) {
+    e('Rule defaults require a message');
+  }
+  if (p.rule.description == null) {
+    e('Rule defaults require a description');
+  }
+  if ((ref1 = p.rule.level) !== 'ignore' &amp;&amp; ref1 !== 'warn' &amp;&amp; ref1 !== 'error') {
+    e("Default level must be 'ignore', 'warn', or 'error'");
+  }
+  if (typeof p.lintToken === 'function') {
+    if (!p.tokens) {
+      e("'tokens' is required for 'lintToken'");
+    }
+  } else if (typeof p.lintLine !== 'function' &amp;&amp; typeof p.lintAST !== 'function') {
+    e('Rules must implement lintToken, lintLine, or lintAST');
+  }
+  RULES[p.rule.name] = p.rule;
+  return _rules[p.rule.name] = RuleConstructor;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+var e, i, len, results, rule, ruleModule;
+if (ruleName == null) {
+  ruleName = void 0;
+}
+try {
+  ruleModule = this.require(moduleName);
+  if (typeof ruleModule === 'function') {
+    return coffeelint.<span class="apidocCodeKeywordSpan">registerRule</span>(ruleModule, ruleName);
+  } else {
+    results = [];
+    for (i = 0, len = ruleModule.length; i &lt; len; i++) {
+      rule = ruleModule[i];
+      results.push(coffeelint.registerRule(rule));
+    }
+    return results;
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.coffeelint.setCache" id="apidoc.element.coffeelint.setCache">
+        function <span class="apidocSignatureSpan">coffeelint.</span>setCache
+        <span class="apidocSignatureSpan">(obj)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">setCache = function (obj) {
+  return cache = obj;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+} else if (options.argv.makeconfig) {
+  logConfig(coffeelint.getRules());
+} else if (options.argv._.length &lt; 1 &amp;&amp; !options.argv.s) {
+  options.showHelp();
+  process.exit(1);
+} else {
+  if (options.argv.cache) {
+    coffeelint.<span class="apidocCodeKeywordSpan">setCache</span>(new Cache(path.join(os.tmpdir(), 'coffeelint')));
+  }
+  config = loadConfig(options);
+  if (options.argv.rules) {
+    ruleLoader.loadRule(coffeelint, options.argv.rules);
+  }
+  if (options.argv.s) {
+    data = '';
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.coffeelint.trimConfig" id="apidoc.element.coffeelint.trimConfig">
+        function <span class="apidocSignatureSpan">coffeelint.</span>trimConfig
+        <span class="apidocSignatureSpan">(userConfig)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">trimConfig = function (userConfig) {
+  var config, dConfig, dValue, key, newConfig, ref, rule, value;
+  newConfig = {};
+  userConfig = mergeDefaultConfig(userConfig);
+  for (rule in userConfig) {
+    config = userConfig[rule];
+    dConfig = RULES[rule];
+    if (rule === 'coffeelint') {
+      config.transforms = config._transforms;
+      delete config._transforms;
+      config.coffeescript = config._coffeescript;
+      delete config._coffeescript;
+      newConfig[rule] = config;
+    } else if ((config.level === (ref = dConfig.level) &amp;&amp; ref === 'ignore')) {
+      void 0;
+    } else if (config.level === 'ignore') {
+      newConfig[rule] = {
+        level: 'ignore'
+      };
+    } else {
+      config.module = config._module;
+      delete config._module;
+      for (key in config) {
+        value = config[key];
+        if (key === 'message' || key === 'description' || key === 'name') {
+          continue;
+        }
+        dValue = dConfig[key];
+        if (value !== dValue &amp;&amp; !sameJSON(value, dValue)) {
+          if (newConfig[rule] == null) {
+            newConfig[rule] = {};
+          }
+          newConfig[rule][key] = value;
+        }
+      }
+    }
+  }
+  return newConfig;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  log(coffeelint.VERSION);
+  process.exit(0);
+} else if (options.argv.h) {
+  options.showHelp();
+  process.exit(0);
+} else if (options.argv.trimconfig) {
+  userConfig = (ref = loadConfig(options)) != null ? ref : getFallbackConfig();
+  logConfig(coffeelint.<span class="apidocCodeKeywordSpan">trimConfig</span>(userConfig));
+} else if (options.argv.makeconfig) {
+  logConfig(coffeelint.getRules());
+} else if (options.argv._.length &lt; 1 &amp;&amp; !options.argv.s) {
+  options.showHelp();
+  process.exit(1);
+} else {
+  if (options.argv.cache) {
+...</pre></li>
+    </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.coffeelint.cache" id="apidoc.module.coffeelint.cache">module coffeelint.cache</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.coffeelint.cache.cache" id="apidoc.element.coffeelint.cache.cache">
+        function <span class="apidocSignatureSpan">coffeelint.</span>cache
+        <span class="apidocSignatureSpan">(basepath)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Cache(basepath) {
+  this.basepath = basepath;
+  if (!fs.existsSync(this.basepath)) {
+    fs.mkdirSync(this.basepath, 0x1ed);
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.coffeelint.cache.prototype" id="apidoc.module.coffeelint.cache.prototype">module coffeelint.cache.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.coffeelint.cache.prototype.get" id="apidoc.element.coffeelint.cache.prototype.get">
+        function <span class="apidocSignatureSpan">coffeelint.cache.prototype.</span>get
+        <span class="apidocSignatureSpan">(source)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">get = function (source) {
+  return JSON.parse(fs.readFileSync(this.path(source), 'utf8'));
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.coffeelint.cache.prototype.has" id="apidoc.element.coffeelint.cache.prototype.has">
+        function <span class="apidocSignatureSpan">coffeelint.cache.prototype.</span>has
+        <span class="apidocSignatureSpan">(source)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">has = function (source) {
+  return fs.existsSync(this.path(source));
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.coffeelint.cache.prototype.hash" id="apidoc.element.coffeelint.cache.prototype.hash">
+        function <span class="apidocSignatureSpan">coffeelint.cache.prototype.</span>hash
+        <span class="apidocSignatureSpan">(data)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">hash = function (data) {
+  return crypto.createHash('md5').update('' + data).digest('hex').substring(0, 8);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  this.basepath = basepath;
+  if (!fs.existsSync(this.basepath)) {
+    fs.mkdirSync(this.basepath, 0x1ed);
+  }
+}
+
+Cache.prototype.path = function(source) {
+  return path.join(this.basepath, csVer + "-" + ltVer + "-" + this.prefix + "-" + (this.<span class="apidocCodeKeywordSpan">hash</span>(source)));
+};
+
+Cache.prototype.get = function(source) {
+  return JSON.parse(fs.readFileSync(this.path(source), 'utf8'));
+};
+
+Cache.prototype.set = function(source, result) {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.coffeelint.cache.prototype.path" id="apidoc.element.coffeelint.cache.prototype.path">
+        function <span class="apidocSignatureSpan">coffeelint.cache.prototype.</span>path
+        <span class="apidocSignatureSpan">(source)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">path = function (source) {
+  return path.join(this.basepath, csVer + "-" + ltVer + "-" + this.prefix + "-" + (this.hash(source)));
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+}
+
+Cache.prototype.path = function(source) {
+  return path.join(this.basepath, csVer + "-" + ltVer + "-" + this.prefix + "-" + (this.hash(source
+)));
+};
+
+Cache.prototype.get = function(source) {
+  return JSON.parse(fs.readFileSync(this.<span class="apidocCodeKeywordSpan">path</span>(source), 'utf8'));
+};
+
+Cache.prototype.set = function(source, result) {
+  return fs.writeFileSync(this.path(source), JSON.stringify(result));
+};
+
+Cache.prototype.has = function(source) {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.coffeelint.cache.prototype.set" id="apidoc.element.coffeelint.cache.prototype.set">
+        function <span class="apidocSignatureSpan">coffeelint.cache.prototype.</span>set
+        <span class="apidocSignatureSpan">(source, result)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">set = function (source, result) {
+  return fs.writeFileSync(this.path(source), JSON.stringify(result));
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.coffeelint.cache.prototype.setConfig" id="apidoc.element.coffeelint.cache.prototype.setConfig">
+        function <span class="apidocSignatureSpan">coffeelint.cache.prototype.</span>setConfig
+        <span class="apidocSignatureSpan">(config)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">setConfig = function (config) {
+  return this.prefix = this.hash(JSON.stringify(config));
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.coffeelint.checkstyle" id="apidoc.module.coffeelint.checkstyle">module coffeelint.checkstyle</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.coffeelint.checkstyle.checkstyle" id="apidoc.element.coffeelint.checkstyle.checkstyle">
+        function <span class="apidocSignatureSpan">coffeelint.</span>checkstyle
+        <span class="apidocSignatureSpan">(errorReport, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function CheckstyleReporter(errorReport, options) {
+  this.errorReport = errorReport;
+  if (options == null) {
+    options = {};
+  }
+  this.quiet = options.quiet;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.coffeelint.checkstyle.prototype" id="apidoc.module.coffeelint.checkstyle.prototype">module coffeelint.checkstyle.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.coffeelint.checkstyle.prototype.escape" id="apidoc.element.coffeelint.checkstyle.prototype.escape">
+        function <span class="apidocSignatureSpan">coffeelint.checkstyle.prototype.</span>escape
+        <span class="apidocSignatureSpan">(msg)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">escape = function (msg) {
+  var i, len, r, replacements;
+  msg = '' + msg;
+  if (!msg) {
+    return;
+  }
+  replacements = [[/&amp;/g, '&amp;amp;'], [/"/g, '&amp;quot;'], [/&lt;/g, '&amp;lt;'], [/&gt;/g, '&amp;gt;'], [/'/g, '&amp;apos;']];
+  for (i = 0, len = replacements.length; i &lt; len; i++) {
+    r = replacements[i];
+    msg = msg.replace(r[0], r[1]);
+  }
+  return msg;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+          continue;
+        }
+        level = e.level;
+        if (level === 'warn') {
+          level = 'warning';
+        }
+        context = (ref1 = e.context) != null ? ref1 : '';
+        this.print("&lt;error line=\"" + e.lineNumber + "\"\n    severity=\"" + (this.<span class="apidocCodeKeywordSpan">escape</span>(level)) + "\"\n    message=\"" + (this.escape(e.message + '; context: ' + context)) + "\"\n    source=\"coffeelint\"/&gt;");
+      }
+      this.print('&lt;/file&gt;');
+    }
+  }
+  return this.print('&lt;/checkstyle&gt;');
+};
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.coffeelint.checkstyle.prototype.print" id="apidoc.element.coffeelint.checkstyle.prototype.print">
+        function <span class="apidocSignatureSpan">coffeelint.checkstyle.prototype.</span>print
+        <span class="apidocSignatureSpan">(message)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">print = function (message) {
+  return console.log(message);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  return console.log(message);
+};
+
+CheckstyleReporter.prototype.escape = JsLintReporter.prototype.escape;
+
+CheckstyleReporter.prototype.publish = function() {
+  var context, e, errors, i, len, level, path, ref, ref1;
+  this.<span class="apidocCodeKeywordSpan">print</span>('&lt;?xml version="1.0" encoding="utf-8"?&gt;
+;');
+  this.print('&lt;checkstyle version="4.3"&gt;');
+  ref = this.errorReport.paths;
+  for (path in ref) {
+    errors = ref[path];
+    if (errors.length) {
+      this.print("&lt;file name=\"" + path + "\"&gt;");
+      for (i = 0, len = errors.length; i &lt; len; i++) {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.coffeelint.checkstyle.prototype.publish" id="apidoc.element.coffeelint.checkstyle.prototype.publish">
+        function <span class="apidocSignatureSpan">coffeelint.checkstyle.prototype.</span>publish
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">publish = function () {
+  var context, e, errors, i, len, level, path, ref, ref1;
+  this.print('&lt;?xml version="1.0" encoding="utf-8"?&gt;');
+  this.print('&lt;checkstyle version="4.3"&gt;');
+  ref = this.errorReport.paths;
+  for (path in ref) {
+    errors = ref[path];
+    if (errors.length) {
+      this.print("&lt;file name=\"" + path + "\"&gt;");
+      for (i = 0, len = errors.length; i &lt; len; i++) {
+        e = errors[i];
+        if (!(!this.quiet || e.level === 'error')) {
+          continue;
+        }
+        level = e.level;
+        if (level === 'warn') {
+          level = 'warning';
+        }
+        context = (ref1 = e.context) != null ? ref1 : '';
+        this.print("&lt;error line=\"" + e.lineNumber + "\"\n    severity=\"" + (this.escape(level)) + "\"\n    message=\"" + (this
+.escape(e.message + '; context: ' + context)) + "\"\n    source=\"coffeelint\"/&gt;");
+      }
+      this.print('&lt;/file&gt;');
+    }
+  }
+  return this.print('&lt;/checkstyle&gt;');
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+        return process.stdout.isTTY;
+    }
+  })();
+  reporter = new SelectedReporter(errorReport, {
+    colorize: colorize,
+    quiet: options.argv.q
+  });
+  reporter.<span class="apidocCodeKeywordSpan">publish</span>();
+  return process.on('exit', function() {
+    return process.exit(errorReport.getExitCode());
+  });
+};
+
+options = optimist.usage('Usage: coffeelint [options] source [...]').alias('f', 'file').alias('
+;h', 'help').alias('v', 'version').alias('s', 'stdin').alias('q'
+;, 'quiet').alias('c', 'cache').describe('f', 'Specify a custom configuration file.&amp;#
+x27;).describe('rules', 'Specify a custom rule or directory of rules.').describe('makeconfig', '
+;Prints a default config file').describe('trimconfig', 'Compares your config with the default and prints a minimal
+ configuration').describe('noconfig', 'Ignores any config file.').describe('h', 'Print help
+ information.').describe('v', 'Print current version number.').describe('r', '(not used,
+but left for backward compatibility)').describe('reporter', 'built in reporter (default, csv, jslint, checkstyle
+, raw), or module, or path to reporter file.').describe('csv', '[deprecated] use --reporter csv').describe
+('jslint', '[deprecated] use --reporter jslint').describe('nocolor', '[deprecated] use --color
+=never').describe('checkstyle', '[deprecated] use --reporter checkstyle').describe('color=&lt;when
+&gt;', 'When to colorize the output. &lt;when&gt; can be one of always, never , or auto.').describe('s
+', 'Lint the source from stdin').describe('q', 'Only print errors.').describe('literate&amp;#
+x27;, 'Used with --stdin to process as Literate CoffeeScript').describe('c', 'Cache linting results'
+;).describe('ext', 'Specify an additional file extension, separated by comma.').boolean('csv').boolean
+('jslint').boolean('checkstyle').boolean('nocolor').boolean('noconfig').boolean('makeconfig
+').boolean('trimconfig').boolean('literate').boolean('r').boolean('s').boolean('
+;q', 'Print errors only.').boolean('c');
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.coffeelint.configfinder" id="apidoc.module.coffeelint.configfinder">module coffeelint.configfinder</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.coffeelint.configfinder.getConfig" id="apidoc.element.coffeelint.configfinder.getConfig">
+        function <span class="apidocSignatureSpan">coffeelint.configfinder.</span>getConfig
+        <span class="apidocSignatureSpan">(filename)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">getConfig = function (filename) {
+  var config, dir;
+  if (filename == null) {
+    filename = null;
+  }
+  if (filename) {
+    dir = path.dirname(path.resolve(filename));
+  } else {
+    dir = process.cwd();
+  }
+  config = getConfig(dir);
+  if (config) {
+    config = extendConfig(config);
+    config = expandModuleNames(dir, config);
+  }
+  return config;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+};
+
+getFallbackConfig = function(filename) {
+  if (filename == null) {
+    filename = null;
+  }
+  if (!options.argv.noconfig) {
+    return configfinder.<span class="apidocCodeKeywordSpan">getConfig</span>(filename);
+  }
+};
+
+deprecatedReporter = function(errorReport, reporter) {
+  var base;
+  if ((base = errorReport.paths)['coffeelint_fake_file.coffee'] == null) {
+    base['coffeelint_fake_file.coffee'] = [];
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.coffeelint.csv" id="apidoc.module.coffeelint.csv">module coffeelint.csv</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.coffeelint.csv.csv" id="apidoc.element.coffeelint.csv.csv">
+        function <span class="apidocSignatureSpan">coffeelint.</span>csv
+        <span class="apidocSignatureSpan">(errorReport, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function CSVReporter(errorReport, options) {
+  this.errorReport = errorReport;
+  if (options == null) {
+    options = {};
+  }
+  this.quiet = options.quiet;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.coffeelint.csv.prototype" id="apidoc.module.coffeelint.csv.prototype">module coffeelint.csv.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.coffeelint.csv.prototype.print" id="apidoc.element.coffeelint.csv.prototype.print">
+        function <span class="apidocSignatureSpan">coffeelint.csv.prototype.</span>print
+        <span class="apidocSignatureSpan">(message)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">print = function (message) {
+  return console.log(message);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  return console.log(message);
+};
+
+CheckstyleReporter.prototype.escape = JsLintReporter.prototype.escape;
+
+CheckstyleReporter.prototype.publish = function() {
+  var context, e, errors, i, len, level, path, ref, ref1;
+  this.<span class="apidocCodeKeywordSpan">print</span>('&lt;?xml version="1.0" encoding="utf-8"?&gt;
+;');
+  this.print('&lt;checkstyle version="4.3"&gt;');
+  ref = this.errorReport.paths;
+  for (path in ref) {
+    errors = ref[path];
+    if (errors.length) {
+      this.print("&lt;file name=\"" + path + "\"&gt;");
+      for (i = 0, len = errors.length; i &lt; len; i++) {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.coffeelint.csv.prototype.publish" id="apidoc.element.coffeelint.csv.prototype.publish">
+        function <span class="apidocSignatureSpan">coffeelint.csv.prototype.</span>publish
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">publish = function () {
+  var e, errors, f, header, path, ref, results;
+  header = ['path', 'lineNumber', 'lineNumberEnd', 'level', 'message'];
+  this.print(header.join(','));
+  ref = this.errorReport.paths;
+  results = [];
+  for (path in ref) {
+    errors = ref[path];
+    results.push((function() {
+      var i, len, ref1, results1;
+      results1 = [];
+      for (i = 0, len = errors.length; i &lt; len; i++) {
+        e = errors[i];
+        if (!(!this.quiet || e.level === 'error')) {
+          continue;
+        }
+        if (e.context) {
+          e.message += " " + e.context + ".";
+        }
+        f = [path, e.lineNumber, (ref1 = e.lineNumberEnd) != null ? ref1 : e.lineNumberEnd, e.level, e.message];
+        results1.push(this.print(f.join(',')));
+      }
+      return results1;
+    }).call(this));
+  }
+  return results;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+        return process.stdout.isTTY;
+    }
+  })();
+  reporter = new SelectedReporter(errorReport, {
+    colorize: colorize,
+    quiet: options.argv.q
+  });
+  reporter.<span class="apidocCodeKeywordSpan">publish</span>();
+  return process.on('exit', function() {
+    return process.exit(errorReport.getExitCode());
+  });
+};
+
+options = optimist.usage('Usage: coffeelint [options] source [...]').alias('f', 'file').alias('
+;h', 'help').alias('v', 'version').alias('s', 'stdin').alias('q'
+;, 'quiet').alias('c', 'cache').describe('f', 'Specify a custom configuration file.&amp;#
+x27;).describe('rules', 'Specify a custom rule or directory of rules.').describe('makeconfig', '
+;Prints a default config file').describe('trimconfig', 'Compares your config with the default and prints a minimal
+ configuration').describe('noconfig', 'Ignores any config file.').describe('h', 'Print help
+ information.').describe('v', 'Print current version number.').describe('r', '(not used,
+but left for backward compatibility)').describe('reporter', 'built in reporter (default, csv, jslint, checkstyle
+, raw), or module, or path to reporter file.').describe('csv', '[deprecated] use --reporter csv').describe
+('jslint', '[deprecated] use --reporter jslint').describe('nocolor', '[deprecated] use --color
+=never').describe('checkstyle', '[deprecated] use --reporter checkstyle').describe('color=&lt;when
+&gt;', 'When to colorize the output. &lt;when&gt; can be one of always, never , or auto.').describe('s
+', 'Lint the source from stdin').describe('q', 'Only print errors.').describe('literate&amp;#
+x27;, 'Used with --stdin to process as Literate CoffeeScript').describe('c', 'Cache linting results'
+;).describe('ext', 'Specify an additional file extension, separated by comma.').boolean('csv').boolean
+('jslint').boolean('checkstyle').boolean('nocolor').boolean('noconfig').boolean('makeconfig
+').boolean('trimconfig').boolean('literate').boolean('r').boolean('s').boolean('
+;q', 'Print errors only.').boolean('c');
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.coffeelint.default" id="apidoc.module.coffeelint.default">module coffeelint.default</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.coffeelint.default.default" id="apidoc.element.coffeelint.default.default">
+        function <span class="apidocSignatureSpan">coffeelint.</span>default
+        <span class="apidocSignatureSpan">(errorReport, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Reporter(errorReport, options) {
+  this.errorReport = errorReport;
+  if (options == null) {
+    options = {};
+  }
+  this.colorize = options.colorize, this.quiet = options.quiet;
+  this.ok = 'âœ“';
+  this.warn = 'âš¡';
+  this.err = 'âœ—';
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.coffeelint.default.prototype" id="apidoc.module.coffeelint.default.prototype">module coffeelint.default.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.coffeelint.default.prototype.plural" id="apidoc.element.coffeelint.default.prototype.plural">
+        function <span class="apidocSignatureSpan">coffeelint.default.prototype.</span>plural
+        <span class="apidocSignatureSpan">(str, count)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">plural = function (str, count) {
+  if (count === 1) {
+    return str;
+  } else {
+    return str + "s";
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+Reporter.prototype.reportSummary = function(s) {
+  var e, err, file, msg, p, start, w, warn;
+  start = s.errorCount &gt; 0 ? this.err + " " + (this.stylize('Lint!', 'red', 'bold')) :
+s.warningCount &gt; 0 ? this.warn + " " + (this.stylize('Warning!', 'yellow', 'bold')) :
+this.ok + " " + (this.stylize('Ok!', 'green', 'bold'));
+  e = s.errorCount;
+  w = s.warningCount;
+  p = s.pathCount;
+  err = this.<span class="apidocCodeKeywordSpan">plural</span>('error', e);
+  warn = this.plural('warning', w);
+  file = this.plural('file', p);
+  msg = start + " Â» " + e + " " + err + " and " + w + " " + warn + " in " + p + &amp;#
+x22; " + file;
+  return '\n' + this.stylize(msg) + '\n';
+};
+
+Reporter.prototype.reportPath = function(path, errors) {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.coffeelint.default.prototype.print" id="apidoc.element.coffeelint.default.prototype.print">
+        function <span class="apidocSignatureSpan">coffeelint.default.prototype.</span>print
+        <span class="apidocSignatureSpan">(message)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">print = function (message) {
+  return console.log(message);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  return console.log(message);
+};
+
+CheckstyleReporter.prototype.escape = JsLintReporter.prototype.escape;
+
+CheckstyleReporter.prototype.publish = function() {
+  var context, e, errors, i, len, level, path, ref, ref1;
+  this.<span class="apidocCodeKeywordSpan">print</span>('&lt;?xml version="1.0" encoding="utf-8"?&gt;
+;');
+  this.print('&lt;checkstyle version="4.3"&gt;');
+  ref = this.errorReport.paths;
+  for (path in ref) {
+    errors = ref[path];
+    if (errors.length) {
+      this.print("&lt;file name=\"" + path + "\"&gt;");
+      for (i = 0, len = errors.length; i &lt; len; i++) {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.coffeelint.default.prototype.publish" id="apidoc.element.coffeelint.default.prototype.publish">
+        function <span class="apidocSignatureSpan">coffeelint.default.prototype.</span>publish
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">publish = function () {
+  var errors, path, paths, report;
+  paths = this.errorReport.paths;
+  report = '';
+  for (path in paths) {
+    errors = paths[path];
+    report += this.reportPath(path, errors);
+  }
+  report += this.reportSummary(this.errorReport.getSummary());
+  report += '';
+  if (!this.quiet || this.errorReport.hasError()) {
+    this.print(report);
+  }
+  return this;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+        return process.stdout.isTTY;
+    }
+  })();
+  reporter = new SelectedReporter(errorReport, {
+    colorize: colorize,
+    quiet: options.argv.q
+  });
+  reporter.<span class="apidocCodeKeywordSpan">publish</span>();
+  return process.on('exit', function() {
+    return process.exit(errorReport.getExitCode());
+  });
+};
+
+options = optimist.usage('Usage: coffeelint [options] source [...]').alias('f', 'file').alias('
+;h', 'help').alias('v', 'version').alias('s', 'stdin').alias('q'
+;, 'quiet').alias('c', 'cache').describe('f', 'Specify a custom configuration file.&amp;#
+x27;).describe('rules', 'Specify a custom rule or directory of rules.').describe('makeconfig', '
+;Prints a default config file').describe('trimconfig', 'Compares your config with the default and prints a minimal
+ configuration').describe('noconfig', 'Ignores any config file.').describe('h', 'Print help
+ information.').describe('v', 'Print current version number.').describe('r', '(not used,
+but left for backward compatibility)').describe('reporter', 'built in reporter (default, csv, jslint, checkstyle
+, raw), or module, or path to reporter file.').describe('csv', '[deprecated] use --reporter csv').describe
+('jslint', '[deprecated] use --reporter jslint').describe('nocolor', '[deprecated] use --color
+=never').describe('checkstyle', '[deprecated] use --reporter checkstyle').describe('color=&lt;when
+&gt;', 'When to colorize the output. &lt;when&gt; can be one of always, never , or auto.').describe('s
+', 'Lint the source from stdin').describe('q', 'Only print errors.').describe('literate&amp;#
+x27;, 'Used with --stdin to process as Literate CoffeeScript').describe('c', 'Cache linting results'
+;).describe('ext', 'Specify an additional file extension, separated by comma.').boolean('csv').boolean
+('jslint').boolean('checkstyle').boolean('nocolor').boolean('noconfig').boolean('makeconfig
+').boolean('trimconfig').boolean('literate').boolean('r').boolean('s').boolean('
+;q', 'Print errors only.').boolean('c');
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.coffeelint.default.prototype.reportPath" id="apidoc.element.coffeelint.default.prototype.reportPath">
+        function <span class="apidocSignatureSpan">coffeelint.default.prototype.</span>reportPath
+        <span class="apidocSignatureSpan">(path, errors)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">reportPath = function (path, errors) {
+  var color, e, hasError, hasWarning, i, len, lineEnd, o, output, overall, pathReport, ref;
+  ref = (hasError = this.errorReport.pathHasError(path)) ? [this.err, 'red'] : (hasWarning = this.errorReport.pathHasWarning(path
+)) ? [this.warn, 'yellow'] : [this.ok, 'green'], overall = ref[0], color = ref[1];
+  pathReport = '';
+  if (!this.quiet || hasError) {
+    pathReport += "  " + overall + " " + (this.stylize(path, color, 'bold')) + "\n";
+  }
+  for (i = 0, len = errors.length; i &lt; len; i++) {
+    e = errors[i];
+    if (!(!this.quiet || e.level === 'error')) {
+      continue;
+    }
+    o = e.level === 'error' ? this.err : this.warn;
+    lineEnd = '';
+    if (e.lineNumberEnd != null) {
+      lineEnd = "-" + e.lineNumberEnd;
+    }
+    output = '#' + e.lineNumber + lineEnd;
+    pathReport += '     ' + (o + " " + (this.stylize(output, color)) + ": " + e.message + ".");
+    if (e.context) {
+      pathReport += " " + e.context + ".";
+    }
+    pathReport += '\n';
+  }
+  return pathReport;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+    Reporter.prototype.publish = function() {
+var errors, path, paths, report;
+paths = this.errorReport.paths;
+report = '';
+for (path in paths) {
+  errors = paths[path];
+  report += this.<span class="apidocCodeKeywordSpan">reportPath</span>(path, errors);
+}
+report += this.reportSummary(this.errorReport.getSummary());
+report += '';
+if (!this.quiet || this.errorReport.hasError()) {
+  this.print(report);
+}
+return this;
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.coffeelint.default.prototype.reportSummary" id="apidoc.element.coffeelint.default.prototype.reportSummary">
+        function <span class="apidocSignatureSpan">coffeelint.default.prototype.</span>reportSummary
+        <span class="apidocSignatureSpan">(s)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">reportSummary = function (s) {
+  var e, err, file, msg, p, start, w, warn;
+  start = s.errorCount &gt; 0 ? this.err + " " + (this.stylize('Lint!', 'red', 'bold')) : s.warningCount &gt; 0 ? this.warn + " " + (this
+.stylize('Warning!', 'yellow', 'bold')) : this.ok + " " + (this.stylize('Ok!', 'green', 'bold'));
+  e = s.errorCount;
+  w = s.warningCount;
+  p = s.pathCount;
+  err = this.plural('error', e);
+  warn = this.plural('warning', w);
+  file = this.plural('file', p);
+  msg = start + " Â» " + e + " " + err + " and " + w + " " + warn + " in " + p + " " + file;
+  return '\n' + this.stylize(msg) + '\n';
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  var errors, path, paths, report;
+  paths = this.errorReport.paths;
+  report = '';
+  for (path in paths) {
+    errors = paths[path];
+    report += this.reportPath(path, errors);
+  }
+  report += this.<span class="apidocCodeKeywordSpan">reportSummary</span>(this.errorReport.getSummary());
+  report += '';
+  if (!this.quiet || this.errorReport.hasError()) {
+    this.print(report);
+  }
+  return this;
+};
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.coffeelint.default.prototype.stylize" id="apidoc.element.coffeelint.default.prototype.stylize">
+        function <span class="apidocSignatureSpan">coffeelint.default.prototype.</span>stylize
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">stylize = function () {
+  var map, message, styles;
+  message = arguments[0], styles = 2 &lt;= arguments.length ? slice.call(arguments, 1) : [];
+  if (!this.colorize) {
+    return message;
+  }
+  map = {
+    bold: [1, 22],
+    yellow: [33, 39],
+    green: [32, 39],
+    red: [31, 39]
+  };
+  return styles.reduce(function(m, s) {
+    return '\u001b[' + map[s][0] + 'm' + m + '\u001b[' + map[s][1] + 'm';
+  }, message);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    this.print(report);
+  }
+  return this;
+};
+
+Reporter.prototype.reportSummary = function(s) {
+  var e, err, file, msg, p, start, w, warn;
+  start = s.errorCount &gt; 0 ? this.err + " " + (this.<span class="apidocCodeKeywordSpan">stylize</span>('Lint
+!', 'red', 'bold')) : s.warningCount &gt; 0 ? this.warn + " " + (this.stylize('Warning
+!', 'yellow', 'bold')) : this.ok + " " + (this.stylize('Ok!', 'green', &amp;#
+x27;bold'));
+  e = s.errorCount;
+  w = s.warningCount;
+  p = s.pathCount;
+  err = this.plural('error', e);
+  warn = this.plural('warning', w);
+  file = this.plural('file', p);
+  msg = start + " Â» " + e + " " + err + " and " + w + " " + warn + " in " + p + &amp;#
+x22; " + file;
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.coffeelint.jslint" id="apidoc.module.coffeelint.jslint">module coffeelint.jslint</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.coffeelint.jslint.jslint" id="apidoc.element.coffeelint.jslint.jslint">
+        function <span class="apidocSignatureSpan">coffeelint.</span>jslint
+        <span class="apidocSignatureSpan">(errorReport, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function JSLintReporter(errorReport, options) {
+  this.errorReport = errorReport;
+  if (options == null) {
+    options = {};
+  }
+  this.quiet = options.quiet;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.coffeelint.jslint.prototype" id="apidoc.module.coffeelint.jslint.prototype">module coffeelint.jslint.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.coffeelint.jslint.prototype.escape" id="apidoc.element.coffeelint.jslint.prototype.escape">
+        function <span class="apidocSignatureSpan">coffeelint.jslint.prototype.</span>escape
+        <span class="apidocSignatureSpan">(msg)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">escape = function (msg) {
+  var i, len, r, replacements;
+  msg = '' + msg;
+  if (!msg) {
+    return;
+  }
+  replacements = [[/&amp;/g, '&amp;amp;'], [/"/g, '&amp;quot;'], [/&lt;/g, '&amp;lt;'], [/&gt;/g, '&amp;gt;'], [/'/g, '&amp;apos;']];
+  for (i = 0, len = replacements.length; i &lt; len; i++) {
+    r = replacements[i];
+    msg = msg.replace(r[0], r[1]);
+  }
+  return msg;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+          continue;
+        }
+        level = e.level;
+        if (level === 'warn') {
+          level = 'warning';
+        }
+        context = (ref1 = e.context) != null ? ref1 : '';
+        this.print("&lt;error line=\"" + e.lineNumber + "\"\n    severity=\"" + (this.<span class="apidocCodeKeywordSpan">escape</span>(level)) + "\"\n    message=\"" + (this.escape(e.message + '; context: ' + context)) + "\"\n    source=\"coffeelint\"/&gt;");
+      }
+      this.print('&lt;/file&gt;');
+    }
+  }
+  return this.print('&lt;/checkstyle&gt;');
+};
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.coffeelint.jslint.prototype.print" id="apidoc.element.coffeelint.jslint.prototype.print">
+        function <span class="apidocSignatureSpan">coffeelint.jslint.prototype.</span>print
+        <span class="apidocSignatureSpan">(message)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">print = function (message) {
+  return console.log(message);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  return console.log(message);
+};
+
+CheckstyleReporter.prototype.escape = JsLintReporter.prototype.escape;
+
+CheckstyleReporter.prototype.publish = function() {
+  var context, e, errors, i, len, level, path, ref, ref1;
+  this.<span class="apidocCodeKeywordSpan">print</span>('&lt;?xml version="1.0" encoding="utf-8"?&gt;
+;');
+  this.print('&lt;checkstyle version="4.3"&gt;');
+  ref = this.errorReport.paths;
+  for (path in ref) {
+    errors = ref[path];
+    if (errors.length) {
+      this.print("&lt;file name=\"" + path + "\"&gt;");
+      for (i = 0, len = errors.length; i &lt; len; i++) {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.coffeelint.jslint.prototype.publish" id="apidoc.element.coffeelint.jslint.prototype.publish">
+        function <span class="apidocSignatureSpan">coffeelint.jslint.prototype.</span>publish
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">publish = function () {
+  var e, errors, i, len, path, ref, ref1;
+  this.print('&lt;?xml version="1.0" encoding="utf-8"?&gt;&lt;jslint&gt;');
+  ref = this.errorReport.paths;
+  for (path in ref) {
+    errors = ref[path];
+    if (errors.length) {
+      this.print("&lt;file name=\"" + path + "\"&gt;");
+      for (i = 0, len = errors.length; i &lt; len; i++) {
+        e = errors[i];
+        if (!this.quiet || e.level === 'error') {
+          this.print("&lt;issue line=\"" + e.lineNumber + "\"\n        lineEnd=\"" + ((ref1 = e.lineNumberEnd) != null ? ref1 : e.lineNumber
+) + "\"\n        reason=\"[" + (this.escape(e.level)) + "] " + (this.escape(e.message)) + "\"\n        evidence=\"" + (this.escape(e.context)) + "\"/&gt;");
+        }
+      }
+      this.print('&lt;/file&gt;');
+    }
+  }
+  return this.print('&lt;/jslint&gt;');
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+        return process.stdout.isTTY;
+    }
+  })();
+  reporter = new SelectedReporter(errorReport, {
+    colorize: colorize,
+    quiet: options.argv.q
+  });
+  reporter.<span class="apidocCodeKeywordSpan">publish</span>();
+  return process.on('exit', function() {
+    return process.exit(errorReport.getExitCode());
+  });
+};
+
+options = optimist.usage('Usage: coffeelint [options] source [...]').alias('f', 'file').alias('
+;h', 'help').alias('v', 'version').alias('s', 'stdin').alias('q'
+;, 'quiet').alias('c', 'cache').describe('f', 'Specify a custom configuration file.&amp;#
+x27;).describe('rules', 'Specify a custom rule or directory of rules.').describe('makeconfig', '
+;Prints a default config file').describe('trimconfig', 'Compares your config with the default and prints a minimal
+ configuration').describe('noconfig', 'Ignores any config file.').describe('h', 'Print help
+ information.').describe('v', 'Print current version number.').describe('r', '(not used,
+but left for backward compatibility)').describe('reporter', 'built in reporter (default, csv, jslint, checkstyle
+, raw), or module, or path to reporter file.').describe('csv', '[deprecated] use --reporter csv').describe
+('jslint', '[deprecated] use --reporter jslint').describe('nocolor', '[deprecated] use --color
+=never').describe('checkstyle', '[deprecated] use --reporter checkstyle').describe('color=&lt;when
+&gt;', 'When to colorize the output. &lt;when&gt; can be one of always, never , or auto.').describe('s
+', 'Lint the source from stdin').describe('q', 'Only print errors.').describe('literate&amp;#
+x27;, 'Used with --stdin to process as Literate CoffeeScript').describe('c', 'Cache linting results'
+;).describe('ext', 'Specify an additional file extension, separated by comma.').boolean('csv').boolean
+('jslint').boolean('checkstyle').boolean('nocolor').boolean('noconfig').boolean('makeconfig
+').boolean('trimconfig').boolean('literate').boolean('r').boolean('s').boolean('
+;q', 'Print errors only.').boolean('c');
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.coffeelint.raw" id="apidoc.module.coffeelint.raw">module coffeelint.raw</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.coffeelint.raw.raw" id="apidoc.element.coffeelint.raw.raw">
+        function <span class="apidocSignatureSpan">coffeelint.</span>raw
+        <span class="apidocSignatureSpan">(errorReport, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function RawReporter(errorReport, options) {
+  this.errorReport = errorReport;
+  if (options == null) {
+    options = {};
+  }
+  this.quiet = options.quiet;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.coffeelint.raw.prototype" id="apidoc.module.coffeelint.raw.prototype">module coffeelint.raw.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.coffeelint.raw.prototype.print" id="apidoc.element.coffeelint.raw.prototype.print">
+        function <span class="apidocSignatureSpan">coffeelint.raw.prototype.</span>print
+        <span class="apidocSignatureSpan">(message)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">print = function (message) {
+  return console.log(message);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  return console.log(message);
+};
+
+CheckstyleReporter.prototype.escape = JsLintReporter.prototype.escape;
+
+CheckstyleReporter.prototype.publish = function() {
+  var context, e, errors, i, len, level, path, ref, ref1;
+  this.<span class="apidocCodeKeywordSpan">print</span>('&lt;?xml version="1.0" encoding="utf-8"?&gt;
+;');
+  this.print('&lt;checkstyle version="4.3"&gt;');
+  ref = this.errorReport.paths;
+  for (path in ref) {
+    errors = ref[path];
+    if (errors.length) {
+      this.print("&lt;file name=\"" + path + "\"&gt;");
+      for (i = 0, len = errors.length; i &lt; len; i++) {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.coffeelint.raw.prototype.publish" id="apidoc.element.coffeelint.raw.prototype.publish">
+        function <span class="apidocSignatureSpan">coffeelint.raw.prototype.</span>publish
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">publish = function () {
+  var e, er, errors, path, ref;
+  er = {};
+  ref = this.errorReport.paths;
+  for (path in ref) {
+    errors = ref[path];
+    er[path] = (function() {
+      var i, len, results;
+      results = [];
+      for (i = 0, len = errors.length; i &lt; len; i++) {
+        e = errors[i];
+        if (!this.quiet || e.level === 'error') {
+          results.push(e);
+        }
+      }
+      return results;
+    }).call(this);
+  }
+  return this.print(JSON.stringify(er, void 0, 2));
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+        return process.stdout.isTTY;
+    }
+  })();
+  reporter = new SelectedReporter(errorReport, {
+    colorize: colorize,
+    quiet: options.argv.q
+  });
+  reporter.<span class="apidocCodeKeywordSpan">publish</span>();
+  return process.on('exit', function() {
+    return process.exit(errorReport.getExitCode());
+  });
+};
+
+options = optimist.usage('Usage: coffeelint [options] source [...]').alias('f', 'file').alias('
+;h', 'help').alias('v', 'version').alias('s', 'stdin').alias('q'
+;, 'quiet').alias('c', 'cache').describe('f', 'Specify a custom configuration file.&amp;#
+x27;).describe('rules', 'Specify a custom rule or directory of rules.').describe('makeconfig', '
+;Prints a default config file').describe('trimconfig', 'Compares your config with the default and prints a minimal
+ configuration').describe('noconfig', 'Ignores any config file.').describe('h', 'Print help
+ information.').describe('v', 'Print current version number.').describe('r', '(not used,
+but left for backward compatibility)').describe('reporter', 'built in reporter (default, csv, jslint, checkstyle
+, raw), or module, or path to reporter file.').describe('csv', '[deprecated] use --reporter csv').describe
+('jslint', '[deprecated] use --reporter jslint').describe('nocolor', '[deprecated] use --color
+=never').describe('checkstyle', '[deprecated] use --reporter checkstyle').describe('color=&lt;when
+&gt;', 'When to colorize the output. &lt;when&gt; can be one of always, never , or auto.').describe('s
+', 'Lint the source from stdin').describe('q', 'Only print errors.').describe('literate&amp;#
+x27;, 'Used with --stdin to process as Literate CoffeeScript').describe('c', 'Cache linting results'
+;).describe('ext', 'Specify an additional file extension, separated by comma.').boolean('csv').boolean
+('jslint').boolean('checkstyle').boolean('nocolor').boolean('noconfig').boolean('makeconfig
+').boolean('trimconfig').boolean('literate').boolean('r').boolean('s').boolean('
+;q', 'Print errors only.').boolean('c');
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.coffeelint.ruleLoader" id="apidoc.module.coffeelint.ruleLoader">module coffeelint.ruleLoader</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.coffeelint.ruleLoader.loadFromConfig" id="apidoc.element.coffeelint.ruleLoader.loadFromConfig">
+        function <span class="apidocSignatureSpan">coffeelint.ruleLoader.</span>loadFromConfig
+        <span class="apidocSignatureSpan">(coffeelint, config)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">loadFromConfig = function (coffeelint, config) {
+  var data, results, ruleName;
+  results = [];
+  for (ruleName in config) {
+    data = config[ruleName];
+    if ((data != null ? data.module : void 0) != null) {
+      results.push(this.loadRule(coffeelint, data.module, ruleName));
+    }
+  }
+  return results;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.coffeelint.ruleLoader.loadRule" id="apidoc.element.coffeelint.ruleLoader.loadRule">
+        function <span class="apidocSignatureSpan">coffeelint.ruleLoader.</span>loadRule
+        <span class="apidocSignatureSpan">(coffeelint, moduleName, ruleName)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">loadRule = function (coffeelint, moduleName, ruleName) {
+  var e, i, len, results, rule, ruleModule;
+  if (ruleName == null) {
+    ruleName = void 0;
+  }
+  try {
+    ruleModule = this.require(moduleName);
+    if (typeof ruleModule === 'function') {
+      return coffeelint.registerRule(ruleModule, ruleName);
+    } else {
+      results = [];
+      for (i = 0, len = ruleModule.length; i &lt; len; i++) {
+        rule = ruleModule[i];
+        results.push(coffeelint.registerRule(rule));
+      }
+      return results;
+    }
+  } catch (error) {
+    e = error;
+    console.error("Error loading " + moduleName);
+    throw e;
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  process.exit(1);
+} else {
+  if (options.argv.cache) {
+    coffeelint.setCache(new Cache(path.join(os.tmpdir(), 'coffeelint')));
+  }
+  config = loadConfig(options);
+  if (options.argv.rules) {
+    ruleLoader.<span class="apidocCodeKeywordSpan">loadRule</span>(coffeelint, options.argv.rules);
+  }
+  if (options.argv.s) {
+    data = '';
+    stdin = process.openStdin();
+    stdin.on('data', function(buffer) {
+      if (buffer) {
+        return data += buffer.toString();
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.coffeelint.ruleLoader.require" id="apidoc.element.coffeelint.ruleLoader.require">
+        function <span class="apidocSignatureSpan">coffeelint.ruleLoader.</span>require
+        <span class="apidocSignatureSpan">(moduleName)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">require = function (moduleName) {
+  var rulePath;
+  try {
+    rulePath = resolve(moduleName, {
+      basedir: process.cwd(),
+      extensions: ['.js', '.coffee', '.litcoffee', '.coffee.md']
+    });
+    return require(rulePath);
+  } catch (error) {}
+  try {
+    return require(moduleName);
+  } catch (error) {}
+  try {
+    return require(path.resolve(process.cwd(), moduleName));
+  } catch (error) {}
+  return require(moduleName);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+},
+loadRule: function(coffeelint, moduleName, ruleName) {
+  var e, i, len, results, rule, ruleModule;
+  if (ruleName == null) {
+    ruleName = void 0;
+  }
+  try {
+    ruleModule = this.<span class="apidocCodeKeywordSpan">require</span>(moduleName);
+    if (typeof ruleModule === 'function') {
+      return coffeelint.registerRule(ruleModule, ruleName);
+    } else {
+      results = [];
+      for (i = 0, len = ruleModule.length; i &lt; len; i++) {
+        rule = ruleModule[i];
+        results.push(coffeelint.registerRule(rule));
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocFooterDiv">
+    [ this document was created with
+    <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a>
+    ]
+</div>
+</div>
+</body></html>
